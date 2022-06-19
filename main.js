@@ -19,6 +19,31 @@ let formValidation = () => {
         console.log("failure");
     }else{
         console.log("success");
-        msg.innerHTML=""
+        msg.innerHTML="";
+        acceptData();
     }
 };
+
+// accepting data from input and storing them in an object
+let data = {};
+
+let acceptData = () => {
+    data["text"] = input.value;
+    console.log(data);
+    createPost();
+};
+
+//  create a post
+let createPost = () => {
+    posts.innerHTML += `
+    <div>
+    <p>${data.text}</p>
+    <span class="options">
+      <i onClick="editPost(this)" class="fas fa-edit"></i>
+      <i onClick="deletePost(this)" class="fas fa-trash-alt"></i>
+    </span>
+  </div>
+    
+    `;
+    input.value = "";
+}
