@@ -53,3 +53,13 @@ let createPost = () => {
 let deletePost = (e) => {
     e.parentElement.parentElement.remove();
 }
+
+// edit a post
+let editPost = (e) =>{
+    // The parent of the span is the div. So, we write parentElement twice so that we can jump from the edit icon to the div and target it directly to remove it.Then, whatever data is inside the post, we bring it back on the input field to edit it.
+
+    let editPost = (e) => {
+        input.value = e.parentElement.previousElementSibling.innerHTML;
+        e.parentElement.parentElement.remove();
+    }
+}
